@@ -1,7 +1,6 @@
 <?php
 
-class ClientController{
-    
+class ClientController{    
     function insertClient(){
         require_once('views/templates/header.php');
         require_once('views/client/insertClient.php');
@@ -16,6 +15,10 @@ class ClientController{
             'email' => $_POST['email'], 
             'address' => $_POST['address']
         );
+
+        require_once('models/ClientModel.php');
+        $ClientModel = new ClientModel();
+        $idClient = $ClientModel -> insertClient($client);
 
         require_once('views/templates/header.php');
         require_once('views/client/insertClientAction.php');

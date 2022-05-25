@@ -51,10 +51,14 @@ class ClientController{
             'email' => $client -> email,
             'address' => $client -> address
         );
+        header('Content-Type: application/json');
+        echo('{"message": "cliente atualizado"}');
         $this->ClientModel->updateClient($arrayClient);
     }
 
     function deleteClient($idClient){
+        header('Content-Type: application/json');
+        echo('{"message": "cliente deletado"}');
         $this->ClientModel->deleteClient($idClient);
     }
 

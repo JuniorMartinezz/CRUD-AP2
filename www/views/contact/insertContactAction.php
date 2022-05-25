@@ -25,4 +25,20 @@
             <?= $contact['message'] ?>
         </td>
     </tr>
+    <tr>
+        <th>
+            Status:
+        </th>
+        <td>
+            <?= $contact['status'] ?>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Descrição:
+        </th>
+        <td>
+            <?= $contact['description'] ?>
+        </td>
+    </tr>
 </table>

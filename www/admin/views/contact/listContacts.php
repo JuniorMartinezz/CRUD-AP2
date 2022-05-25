@@ -6,8 +6,6 @@
         <th>Nome</th>
         <th>Email</th>
         <th>Mensagem</th>
-        <th>Status</th>
-        <th>Descrição</th>
 <!--         <th colspan="2">Ações</th> -->
     </tr>
 
@@ -28,12 +26,6 @@
         </td>
         <td>
             <?=$contact['message']?>
-        </td>
-        <td>
-            <?=$contact['status']?>
-        </td>
-        <td>
-            <?=$contact['description']?>
         </td>
 <!--         <td>
             <a href="?controller=contact&action=updateContact&id=<?=$contact['idContact']?>" class="btn btn-warning">Alterar</a>

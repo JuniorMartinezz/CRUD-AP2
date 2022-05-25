@@ -37,21 +37,21 @@ if(!isset($_GET['controller'])){
 
         case 'client':
             require_once("controllers/ClientController.php");
-            $client = new ClientController(); 
+            $ClientController = new ClientController(); 
             if(!isset($_GET['action'])){
-                $client -> insertClient();
+                $ClientController -> insertClient();
             }else{
                 switch ($_REQUEST['action']) {
                     case 'insertClient':
-                        $client -> insertClient();
+                        $ClientController -> insertClient();
                     break;
 
                     case 'insertClientAction':
-                        $client -> insertClientAction();
+                        $ClientController -> insertClientAction();
                     break;
 
                     case 'listClients':
-                        $client -> listClients();
+                        $ClientController -> listClients();
                     break;
                 }
             }

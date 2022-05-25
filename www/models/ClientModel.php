@@ -2,28 +2,38 @@
 
 class ClientModel{
 
-    function listClients(){
+    var $Connection;
+
+    function __construct(){
         require_once('db/ConnectClass.php');
         $connectClass = new ConnectClass();
         $connectClass -> openConnect();
-        $conn = $connectClass -> getConn();
-
-        $sql = 'SELECT * FROM clients';
-
-        return $conn -> query($sql);
-        
+        $this -> Connection = $connectClass -> getConn();
     }
 
     function listContacts(){
-        require_once('db/ConnectClass.php');
-        $connectClass = new ConnectClass();
-        $connectClass -> openConnect();
-        $conn = $connectClass -> getConn();
-
         $sql = 'SELECT * FROM contacts';
+        return $this -> Connection -> query($sql);
+    }
 
-        return $conn -> query($sql);
-        
+    function listClients(){
+        $sql = 'SELECT * FROM clients';
+        return $this -> Connection -> query($sql);
+    }
+    
+    function insertClient($client){
+        $sql = "
+            INSERT INTO 
+            clients (name, phone, email, address)
+            VALUES(
+                '{$client['name']}', 
+                '{$client['phone']}', 
+                '{$client['email']}', 
+                '{$client['address']}'
+            )";
+
+        $this -> Connection -> query($sql);
+        return  $this -> Connection -> insert_id;
     }
 }
 

@@ -25,13 +25,11 @@ class ClientModel{
     function insertContact($contact){
         $sql = "
             INSERT INTO 
-            contacts (name, email, message, status, description)
+            contacts (name, email, message)
             VALUES(
                 '{$contact['name']}', 
                 '{$contact['email']}', 
-                '{$contact['message']}', 
-                '{$contact['status']}', 
-                '{$contact['description']}'
+                '{$contact['message']}'
             )";
 
         $this -> Connection -> query($sql);

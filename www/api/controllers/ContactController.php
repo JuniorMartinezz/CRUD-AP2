@@ -42,6 +42,8 @@ class ContactController{
     }
 
     function deleteContact($idContact){
+        header('Content-Type: application/json');
+        echo('{"message": "contato deletado"}');
         $this->ClientModel->deleteContact($idContact);
     }
 }

@@ -12,14 +12,5 @@
         <label class="form-label">Mensagem</label>
         <input name="message" class="form-control" type="text">
     </div>
-    <div class="mb-3 mt-3">
-        <label class="form-label">Status</label>
-        <input name="status" class="form-control" type="text">
-    </div>
-    <div class="mb-3 mt-3">
-        <label class="form-label">Descrição</label>
-        <input name="description" class="form-control" type="text">
-    </div>
-
     <input class="btn btn-primary" type="submit" value="Enviar">
 </form>

@@ -35,11 +35,12 @@ class ContactController{
             'name' => $_POST['name'],
             'email' => $_POST['email'],
             'message' => $_POST['message'],
-            'status' => $_POST['status'],
-            'description' => $_POST['description']
         );
         
-        $idContact = $this->ClientModel->insertContact($contact);
+        require_once('models/ClientModel.php');
+        $ClientModel = new ClientModel();
+        $idContact = $ClientModel->insertContact($contact);
+
         header('Location: index.php?controller=contact&action=listContacts');
     }
 }
