@@ -40,6 +40,10 @@ class ContactController{
         header('Content-Type: application/json');
         echo('{"cod": 01, "message": "contato foi cadastrado"}');
     }
+
+    function deleteContact($idContact){
+        $this->ClientModel->deleteContact($idContact);
+    }
 }
 
 ?>

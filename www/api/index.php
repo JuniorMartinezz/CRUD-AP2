@@ -27,23 +27,23 @@ if (isset($uriSegments[1])) {
 						} else {
 							$client->listClient($uriSegments[2]);
 						}
-						break;
+					break;
 					case 'POST':
 						$client->insertClient();
-						break;
+					break;
 					case 'PUT':
 						if (isset($uriSegments[2])) {
 							$client->updateClient($uriSegments[2]);
 						}
-						break;
+					break;
 					case 'DELETE':
 						if (isset($uriSegments[2])) {
 							$client->deleteClient($uriSegments[2]);
 						}
-						break;
+					break;
 				}
 			}
-			break;
+		break;
 
 		case 'contact':
 			require_once("controllers/UserController.php");
@@ -51,6 +51,7 @@ if (isset($uriSegments[1])) {
 
 			require_once("controllers/ContactController.php");
 			$contact = new ContactController();
+
 			switch ($requestMethod) {
 				case 'GET':
 					if ($User->isAdmin()) {
@@ -61,30 +62,29 @@ if (isset($uriSegments[1])) {
 						}
 					}
 				break;
+					
 				case 'POST':
 					$contact->insertContact();
 				break;
-					/* 				case 'PUT':
-						if(isset($uriSegments[2])){
-							$contact -> updateClient($uriSegments[2]);
-						} 
-					break;
-					case 'DELETE':
-						if(isset($uriSegments[2])){
-							$contact -> deleteClient($uriSegments[2]);
-						}
-					break; */
-			}
-			break;
 
+				case 'DELETE':
+					if($User -> isAdmin()){
+						if(isset($uriSegments[2])){
+							$contact->deleteContact($uriSegments[2]);
+						}
+					}
+				break;
+			}						
+		break;
+			
 		case 'user':
 			require_once("controllers/UserController.php");
 			$User = new UserController();
 			switch ($requestMethod) {
 				case 'GET':
 					$User->login();
-					break;
+				break;
 			}
-			break;
+		break;
 	}
 }

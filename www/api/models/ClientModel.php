@@ -36,6 +36,17 @@ class ClientModel{
         return  $this -> Connection -> insert_id;
     }
 
+    function deleteContact($idContact){
+        $sql = "
+            DELETE FROM
+                contacts
+            WHERE
+            idContact = '{$idContact}'
+        ";
+
+        return $this -> Connection -> query($sql);
+    }
+
     function listClients(){
         $sql = 'SELECT * FROM clients';
         return $this -> Connection -> query($sql);
